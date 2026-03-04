@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAUG INNOVATIONS | Premium App Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+:root {
+  --accent-blue: #00f5ff;
+  --accent-purple: #ff00c8;
+  --indus-color: #5c2d91;
+  --amazon-color: #ff9900;
+  --bg-dark: #0f172a;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* --- Professional Background Animation --- */
+body {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #111827, #020617);
+  background-size: 400% 400%;
+  animation: meshGradient 15s ease infinite;
+  color: white;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+@keyframes meshGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Floating Animation for Hero --- */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- Navigation --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 48px;
+  width: auto;
+  border-radius: 8px;
+  mix-blend-mode: screen; /* Removes black/white edges of JPG */
+  filter: brightness(1.2) drop-shadow(0 0 5px var(--accent-blue));
+}
+
+.logo span {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.8px;
+  background: linear-gradient(to right, #fff, var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+nav a:hover { opacity: 1; color: var(--accent-blue); }
+nav a::after {
+  content: ''; position: absolute; width: 0; height: 2px;
+  bottom: -4px; left: 0; background: var(--accent-blue);
+  transition: 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* --- Hero Section --- */
+.hero {
+  padding: 160px 8% 100px;
+  text-align: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, var(--accent-blue), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 45px;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.btn-glow {
+  padding: 16px 45px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+  transition: 0.4s;
+  display: inline-block;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 0, 200, 0.6);
+}
+
+/* --- Sections --- */
+.section-head {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-head h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(to bottom, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  padding: 0 8% 100px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 45px 35px;
+  border-radius: 32px;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-blue);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: var(--accent-blue);
+}
+
+.card p {
+  opacity: 0.7;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  min-height: 80px;
+}
+
+/* --- Professional Store Buttons --- */
+.download-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.store-btn.amazon:hover {
+  background: var(--amazon-color);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+}
+
+.store-btn.indus:hover {
+  background: var(--indus-color);
+  box-shadow: 0 0 20px rgba(92, 45, 145, 0.4);
+}
+
+/* --- Animation Class --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 80px 8% 40px;
+  background: rgba(2, 6, 23, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 15px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.social-icons a:hover { opacity: 1; color: var(--accent-blue); }
+
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hero h1 { font-size: 2.8rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <img src="c.jpeg" alt="CAUG Logo">
+    <span>CAUG INNOVATIONS</span>
+  </a>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero reveal active">
+  <h1>Innovating the <span>Mobile Future</span></h1>
+  <p>Building high-performance, beautifully designed mobile applications that empower users and simplify digital lives.</p>
+  <a href="#apps" class="btn-glow">Explore Our Apps <i class="fas fa-chevron-down" style="margin-left:8px"></i></a>
+</section>
+
+<section id="apps" class="reveal">
+  <div class="section-head">
+    <h2>Featured Projects</h2>
+  </div>
+
+  <div class="apps">
+    <div class="card">
+      <div style="font-size: 2.8rem; margin-bottom: 20px;">💎</div>
+      <h3>Your Premium App</h3>
+      <p>An elite mobile experience tailored for speed and efficiency. Download now on your favorite store.</p>
+      
+      <div class="download-group">
+        <a href="#" class="store-btn amazon">
+          <i class="fab fa-amazon"></i>
+          <span>Amazon Appstore</span>
+        </a>
+        <a href="#" class="store-btn indus">
+          <i class="fas fa-rocket"></i>
+          <span>Indus Appstore</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size: 2.8rem; margin-bottom: 20px;">🛡️</div>
+      <h3>Security Pro</h3>
+      <p>Advanced security tools currently under rigorous development. Setting new standards for mobile safety.</p>
+      <div class="store-btn" style="opacity: 0.4; cursor: not-allowed; border-style: dashed;">
+        <span>Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="reveal" style="padding: 120px 8%; text-align: center; background: rgba(0,0,0,0.3);">
+  <div class="section-head">
+    <h2>Privacy First</h2>
+  </div>
+  <p style="max-width: 750px; margin: auto; font-size: 1.1rem; opacity: 0.8;">
+    At <b>CAUG INNOVATIONS</b>, we believe privacy is a fundamental right. We follow industry-leading encryption and data minimization protocols to ensure your information stays where it belongs: with you.
+  </p>
+</section>
+
+<section id="contact" class="reveal" style="padding: 120px 8%; text-align: center;">
+  <div class="section-head">
+    <h2>Work With Us</h2>
+  </div>
+  <p style="opacity: 0.7; margin-bottom: 25px;">For inquiries, support, or collaboration:</p>
+  <a href="mailto:cauginnovation@gmail.com" style="color: var(--accent-blue); font-size: 1.8rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;">
+    cauginnovation@gmail.com
+  </a>
+</section>
+
+<footer>
+  <div class="social-icons" style="margin-bottom: 30px;">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <p style="opacity: 0.5; font-size: 0.85rem;">© 2026 CAUG INNOVATIONS. Crafted for Excellence.</p>
+</footer>
+
+<script>
+  // Advanced Intersection Observer for Smooth Reveal
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>

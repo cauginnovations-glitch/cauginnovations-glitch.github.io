@@ -3,375 +3,407 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAUG INNOVATIONS | Premium App Showcase</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+<title>CAUG Innovations — Building the Future of Mobile</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --accent-blue: #00f5ff;
-  --accent-purple: #ff00c8;
-  --indus-color: #5c2d91;
-  --amazon-color: #ff9900;
-  --bg-dark: #0f172a;
+  --bg:#03030a;--card:#0c0c20;--border:rgba(120,160,255,0.1);
+  --cyan:#00e5ff;--blue:#4d8aff;--purple:#8b5cf6;
+  --text:#eef0ff;--muted:#6b7db3;
 }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 15%,rgba(77,138,255,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 85% 85%,rgba(0,229,255,0.06) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 50% 50%,rgba(139,92,246,0.05) 0%,transparent 60%);pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(99,179,237,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(99,179,237,0.025) 1px,transparent 1px);background-size:70px 70px;pointer-events:none;z-index:0;}
 
-* {
-  margin: 0; padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(3,3,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.08em;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-links{display:flex;align-items:center;gap:.4rem;}
+.nav-link{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:.4rem .9rem;border-radius:6px;transition:all .2s;border:1px solid transparent;}
+.nav-link:hover{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.03);}
+.nav-admin{color:var(--cyan)!important;border-color:rgba(0,229,255,.2)!important;background:rgba(0,229,255,.05)!important;cursor:pointer;}
+.nav-admin:hover{background:rgba(0,229,255,.1)!important;box-shadow:0 0 20px rgba(0,229,255,.1);}
 
-/* --- Professional Background Animation --- */
-body {
-  background: linear-gradient(-45deg, #0f172a, #1e293b, #111827, #020617);
-  background-size: 400% 400%;
-  animation: meshGradient 15s ease infinite;
-  color: white;
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+main{position:relative;z-index:2;}
+.page{display:none;}
+.page.active{display:block;}
 
-@keyframes meshGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.15);padding:.42rem 1rem;border-radius:100px;margin-bottom:2.5rem;animation:fadeUp .8s ease both;}
+.hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,9vw,6.5rem);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:2rem;animation:fadeUp .8s .1s ease both;}
+.hero h1 .l1{display:block;color:var(--text);}
+.hero h1 .l2{display:block;background:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 40%,var(--purple) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{max-width:520px;color:var(--muted);font-size:1.05rem;line-height:1.75;margin-bottom:3rem;animation:fadeUp .8s .2s ease both;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;animation:fadeUp .8s .6s ease both;}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:sp 2s ease-in-out infinite;}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* --- Floating Animation for Hero --- */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
+.btn-p{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03030a;font-weight:700;font-family:'Syne',sans-serif;font-size:.9rem;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .3s;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,255,.25);}
+.btn-g{background:transparent;color:var(--text);font-size:.9rem;font-weight:500;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid var(--border);transition:all .3s;}
+.btn-g:hover{border-color:rgba(77,138,255,.4);color:var(--cyan);}
 
-/* --- Navigation --- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 8%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+.sec{padding:6rem 2rem;max-width:1200px;margin:0 auto;}
+.sec-tag{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em;}
+.sec-sub{color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:3.5rem;font-size:.95rem;}
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.5rem;}
+.app-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.23,1,.32,1);}
+.app-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .3s;}
+.app-card:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.2);box-shadow:0 0 60px rgba(0,229,255,.1);}
+.app-card:hover::before{opacity:1;}
+.app-icon{width:58px;height:58px;border-radius:15px;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(77,138,255,.12));border:1px solid rgba(0,229,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.4rem;}
+.app-badge{display:inline-flex;align-items:center;gap:.32rem;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .56rem;border-radius:4px;margin-bottom:.8rem;}
+.b-live{background:rgba(0,255,128,.08);color:#00ff80;border:1px solid rgba(0,255,128,.2);}
+.b-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#00ff80;animation:blink 1.5s infinite;}
+.b-soon{background:rgba(251,191,36,.08);color:#fbbf24;border:1px solid rgba(251,191,36,.2);}
+.b-dev{background:rgba(0,229,255,.08);color:var(--cyan);border:1px solid rgba(0,229,255,.2);}
+.app-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:.55rem;}
+.app-desc{color:var(--muted);font-size:.87rem;line-height:1.7;margin-bottom:1.6rem;}
+.app-links{display:flex;gap:.55rem;flex-wrap:wrap;}
+.app-btn{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;padding:.42rem .85rem;border-radius:6px;text-decoration:none;transition:all .2s;border:1px solid var(--border);color:var(--muted);}
+.app-btn:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,229,255,.05);}
+.empty-grid{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted);}
+.empty-grid .ei{font-size:3rem;margin-bottom:1rem;opacity:.25;}
 
-.logo img {
-  height: 48px;
-  width: auto;
-  border-radius: 8px;
-  mix-blend-mode: screen; /* Removes black/white edges of JPG */
-  filter: brightness(1.2) drop-shadow(0 0 5px var(--accent-blue));
-}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all .3s;}
+.stat-box:hover{border-color:rgba(0,229,255,.2);transform:translateY(-3px);}
+.stat-val{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.stat-lbl{color:var(--muted);font-size:.78rem;margin-top:.4rem;}
 
-.logo span {
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.8px;
-  background: linear-gradient(to right, #fff, var(--accent-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.contact-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:4rem;text-align:center;position:relative;overflow:hidden;}
+.contact-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.05) 0%,transparent 70%);pointer-events:none;}
+.contact-link{display:inline-flex;align-items:center;gap:.55rem;font-family:'Syne',sans-serif;font-size:.98rem;font-weight:600;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,229,255,.22);padding:.88rem 2rem;border-radius:10px;margin-top:2rem;transition:all .3s;}
+.contact-link:hover{background:rgba(0,229,255,.07);box-shadow:0 0 40px rgba(0,229,255,.1);}
 
-nav a {
-  text-decoration: none;
-  color: white;
-  margin-left: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.7;
-  transition: 0.3s ease;
-  position: relative;
-}
+.priv-wrap{max-width:700px;margin:0 auto;padding:8rem 2rem 5rem;}
+.priv-wrap h1{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:700;margin-bottom:.5rem;}
+.priv-wrap .upd{color:var(--muted);font-size:.82rem;margin-bottom:2.5rem;}
+.priv-wrap h2{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin:2.5rem 0 .7rem;color:var(--cyan);}
+.priv-wrap p{color:var(--muted);line-height:1.85;font-size:.93rem;margin-bottom:1rem;}
+.priv-wrap a{color:var(--cyan);}
 
-nav a:hover { opacity: 1; color: var(--accent-blue); }
-nav a::after {
-  content: ''; position: absolute; width: 0; height: 2px;
-  bottom: -4px; left: 0; background: var(--accent-blue);
-  transition: 0.3s;
-}
-nav a:hover::after { width: 100%; }
+.apps-pg{padding:8rem 2rem 5rem;max-width:1200px;margin:0 auto;}
 
-/* --- Hero Section --- */
-.hero {
-  padding: 160px 8% 100px;
-  text-align: center;
-  animation: float 6s ease-in-out infinite;
-}
+footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;}
+.f-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;letter-spacing:.1em;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.f-copy{color:var(--muted);font-size:.78rem;}
+.f-links{display:flex;gap:1.5rem;}
+.f-links a{color:var(--muted);text-decoration:none;font-size:.78rem;transition:color .2s;}
+.f-links a:hover{color:var(--cyan);}
 
-.hero h1 {
-  font-size: clamp(2.8rem, 7vw, 4.5rem);
-  font-weight: 700;
-  margin-bottom: 25px;
-  line-height: 1.1;
-}
+/* ADMIN */
+.adm-ov{display:none;position:fixed;inset:0;background:rgba(3,3,10,.97);backdrop-filter:blur(24px);z-index:500;overflow-y:auto;}
+.adm-ov.open{display:block;}
+.adm-in{max-width:680px;margin:0 auto;padding:2.5rem 2rem;min-height:100vh;}
+.adm-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.5rem;margin-bottom:2rem;border-bottom:1px solid var(--border);}
+.adm-top h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;}
+.close-x{width:36px;height:36px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.close-x:hover{color:var(--text);border-color:var(--cyan);}
 
-.hero h1 span {
-  background: linear-gradient(90deg, var(--accent-blue), #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
-}
+.login-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.5rem;max-width:380px;margin:4rem auto;text-align:center;}
+.login-card h3{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.4rem;}
+.login-card p{color:var(--muted);font-size:.86rem;margin-bottom:2rem;}
+.err{color:#f87171;font-size:.8rem;margin-bottom:1rem;display:none;}
 
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 45px;
-  font-size: 1.2rem;
-  color: rgba(255,255,255,0.8);
-}
+.fg{margin-bottom:1rem;text-align:left;}
+.fl{display:block;font-size:.76rem;color:var(--muted);font-weight:500;margin-bottom:.38rem;}
+.fi{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.76rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;appearance:none;}
+.fi:focus{border-color:var(--cyan);}
+select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' fill='%236b7db3' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;cursor:pointer;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 
-.btn-glow {
-  padding: 16px 45px;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 700;
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
-  transition: 0.4s;
-  display: inline-block;
-}
+.dc{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.6rem;margin-bottom:1.4rem;}
+.dt{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:var(--cyan);margin-bottom:1.4rem;}
+.ok{background:rgba(0,255,128,.06);border:1px solid rgba(0,255,128,.2);color:#00ff80;padding:.65rem 1rem;border-radius:7px;font-size:.8rem;margin-bottom:1rem;display:none;}
+.li{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);}
+.li:last-child{border-bottom:none;}
+.li-n{font-weight:600;font-size:.88rem;}
+.li-s{color:var(--muted);font-size:.73rem;margin-top:.1rem;}
+.del-btn{padding:.28rem .7rem;border-radius:5px;font-size:.72rem;cursor:pointer;font-weight:600;transition:all .2s;background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
+.del-btn:hover{background:rgba(248,113,113,.15);}
 
-.btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(255, 0, 200, 0.6);
-}
-
-/* --- Sections --- */
-.section-head {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-.section-head h2 {
-  font-size: 2.5rem;
-  background: linear-gradient(to bottom, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.apps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 35px;
-  padding: 0 8% 100px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 45px 35px;
-  border-radius: 32px;
-  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-15px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--accent-blue);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-}
-
-.card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: var(--accent-blue);
-}
-
-.card p {
-  opacity: 0.7;
-  font-size: 1rem;
-  margin-bottom: 30px;
-  min-height: 80px;
-}
-
-/* --- Professional Store Buttons --- */
-.download-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.store-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 14px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.store-btn.amazon:hover {
-  background: var(--amazon-color);
-  color: #000;
-  box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
-}
-
-.store-btn.indus:hover {
-  background: var(--indus-color);
-  box-shadow: 0 0 20px rgba(92, 45, 145, 0.4);
-}
-
-/* --- Animation Class --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 80px 8% 40px;
-  background: rgba(2, 6, 23, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.social-icons a {
-  color: white;
-  font-size: 1.5rem;
-  margin: 0 15px;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-.social-icons a:hover { opacity: 1; color: var(--accent-blue); }
-
-@media (max-width: 768px) {
-  nav { display: none; }
-  .hero h1 { font-size: 2.8rem; }
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem;}
+  .nav-links .nav-link:not(.nav-admin){display:none;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .fr{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:1rem;text-align:center;}
+  .contact-box{padding:2.5rem 1.5rem;}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-  <a href="#" class="logo">
-    <img src="c.jpeg" alt="CAUG Logo">
-    <span>CAUG INNOVATIONS</span>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home')">
+    <div class="nav-dot"></div>
+    CAUG INNOVATIONS
   </a>
-  <nav>
-    <a href="#apps">Apps</a>
-    <a href="#privacy">Privacy</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <div class="nav-links">
+    <a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+    <a class="nav-link" href="#" onclick="showPage('apps')">Apps</a>
+    <a class="nav-link" href="#" onclick="showPage('privacy')">Privacy</a>
+    <a class="nav-link nav-admin" href="#" onclick="openAdmin()">⚙ Admin</a>
+  </div>
+</nav>
 
-<section class="hero reveal active">
-  <h1>Innovating the <span>Mobile Future</span></h1>
-  <p>Building high-performance, beautifully designed mobile applications that empower users and simplify digital lives.</p>
-  <a href="#apps" class="btn-glow">Explore Our Apps <i class="fas fa-chevron-down" style="margin-left:8px"></i></a>
-</section>
+<main>
 
-<section id="apps" class="reveal">
-  <div class="section-head">
-    <h2>Featured Projects</h2>
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>Independent App Studio · India</div>
+    <h1><span class="l1">Building Apps</span><span class="l2">That Matter</span></h1>
+    <p class="hero-sub">CAUG Innovations crafts AI-powered mobile apps that solve real problems — no ads, no dark patterns, just tools people actually need.</p>
+    <div class="hero-btns">
+      <a class="btn-p" href="#" onclick="showPage('apps')">Explore Apps</a>
+      <a class="btn-g" href="mailto:cauginnovation@gmail.com">Get in Touch</a>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
   </div>
 
-  <div class="apps">
-    <div class="card">
-      <div style="font-size: 2.8rem; margin-bottom: 20px;">💎</div>
-      <h3>Your Premium App</h3>
-      <p>An elite mobile experience tailored for speed and efficiency. Download now on your favorite store.</p>
-      
-      <div class="download-group">
-        <a href="#" class="store-btn amazon">
-          <i class="fab fa-amazon"></i>
-          <span>Amazon Appstore</span>
-        </a>
-        <a href="#" class="store-btn indus">
-          <i class="fas fa-rocket"></i>
-          <span>Indus Appstore</span>
-        </a>
+  <div class="sec">
+    <div class="sec-tag">Products</div>
+    <h2 class="sec-title">Our Apps</h2>
+    <p class="sec-sub">Every app solves a real problem. No forced subscriptions, no intrusive ads.</p>
+    <div class="apps-grid" id="grid-home"></div>
+  </div>
+
+  <div class="sec">
+    <div class="about-grid">
+      <div>
+        <div class="sec-tag">About</div>
+        <h2 class="sec-title">Built with purpose,<br>not just profit.</h2>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:1.2rem;font-size:.94rem;">CAUG Innovations is an independent app studio building tools people actually need. We believe great software doesn't have to exploit users.</p>
+        <p style="color:var(--muted);line-height:1.85;font-size:.94rem;">Every product ships with a clear purpose, clean design, and zero dark patterns.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-val" id="stat-n">0</div><div class="stat-lbl">Apps Built</div></div>
+        <div class="stat-box"><div class="stat-val">0</div><div class="stat-lbl">Ads Shown</div></div>
+        <div class="stat-box"><div class="stat-val">₹0</div><div class="stat-lbl">Forced Subscriptions</div></div>
+        <div class="stat-box"><div class="stat-val">∞</div><div class="stat-lbl">User Trust</div></div>
       </div>
     </div>
+  </div>
 
-    <div class="card">
-      <div style="font-size: 2.8rem; margin-bottom: 20px;">🛡️</div>
-      <h3>Security Pro</h3>
-      <p>Advanced security tools currently under rigorous development. Setting new standards for mobile safety.</p>
-      <div class="store-btn" style="opacity: 0.4; cursor: not-allowed; border-style: dashed;">
-        <span>Coming Soon</span>
-      </div>
+  <div class="sec">
+    <div class="contact-box">
+      <div class="sec-tag">Contact</div>
+      <h2 class="sec-title">Let's Talk</h2>
+      <p style="color:var(--muted);max-width:400px;margin:.5rem auto;line-height:1.8;font-size:.94rem;">For support, collaboration, or just to say hello — we'd love to hear from you.</p>
+      <a href="mailto:cauginnovation@gmail.com" class="contact-link">✉ cauginnovation@gmail.com</a>
     </div>
   </div>
-</section>
+</div>
 
-<section id="privacy" class="reveal" style="padding: 120px 8%; text-align: center; background: rgba(0,0,0,0.3);">
-  <div class="section-head">
-    <h2>Privacy First</h2>
+<!-- APPS PAGE -->
+<div id="page-apps" class="page">
+  <div class="apps-pg">
+    <div class="sec-tag">All Products</div>
+    <h2 class="sec-title" style="margin-bottom:.75rem;">Every App We've Built</h2>
+    <p class="sec-sub">Download and explore apps by CAUG Innovations.</p>
+    <div class="apps-grid" id="grid-all"></div>
   </div>
-  <p style="max-width: 750px; margin: auto; font-size: 1.1rem; opacity: 0.8;">
-    At <b>CAUG INNOVATIONS</b>, we believe privacy is a fundamental right. We follow industry-leading encryption and data minimization protocols to ensure your information stays where it belongs: with you.
-  </p>
-</section>
+</div>
 
-<section id="contact" class="reveal" style="padding: 120px 8%; text-align: center;">
-  <div class="section-head">
-    <h2>Work With Us</h2>
+<!-- PRIVACY PAGE -->
+<div id="page-privacy" class="page">
+  <div class="priv-wrap">
+    <div class="sec-tag">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="upd">Last updated: March 2026</p>
+    <p>At CAUG Innovations, your privacy is a fundamental right — not an afterthought. This policy explains how our apps handle your data.</p>
+    <h2>Data We Collect</h2>
+    <p>Our apps are designed with data minimization in mind. We only collect data strictly necessary for core functionality. We never sell your data to any third party.</p>
+    <h2>How We Use Data</h2>
+    <p>Any data collected is used solely to provide the app's core features. We do not use your data for advertising, profiling, or any commercial purpose beyond the app's stated function.</p>
+    <h2>Third-Party Services</h2>
+    <p>Some apps may use third-party services such as AI APIs or analytics tools. These have their own privacy policies. We only select privacy-respecting partners.</p>
+    <h2>Data Storage</h2>
+    <p>Where possible, data is stored locally on your device and not transmitted to our servers. If cloud features are used, this is clearly disclosed in the app before use.</p>
+    <h2>Children's Privacy</h2>
+    <p>We are committed to protecting younger users. Our apps do not knowingly collect personal data from children under 13 without verifiable parental consent.</p>
+    <h2>Your Rights</h2>
+    <p>You have the right to access, modify, or delete any personal data we hold. Contact us at any time and we will respond promptly.</p>
+    <h2>Contact</h2>
+    <p>Questions? Reach us at <a href="mailto:cauginnovation@gmail.com">cauginnovation@gmail.com</a></p>
   </div>
-  <p style="opacity: 0.7; margin-bottom: 25px;">For inquiries, support, or collaboration:</p>
-  <a href="mailto:cauginnovation@gmail.com" style="color: var(--accent-blue); font-size: 1.8rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;">
-    cauginnovation@gmail.com
-  </a>
-</section>
+</div>
+
+</main>
 
 <footer>
-  <div class="social-icons" style="margin-bottom: 30px;">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
+  <div class="f-logo">CAUG INNOVATIONS</div>
+  <div class="f-copy">© 2026 CAUG Innovations</div>
+  <div class="f-links">
+    <a href="#" onclick="showPage('privacy')">Privacy</a>
+    <a href="mailto:cauginnovation@gmail.com">Contact</a>
   </div>
-  <p style="opacity: 0.5; font-size: 0.85rem;">© 2026 CAUG INNOVATIONS. Crafted for Excellence.</p>
 </footer>
 
+<!-- ADMIN -->
+<div class="adm-ov" id="admOv">
+  <div class="adm-in">
+    <div class="adm-top">
+      <h2>⚙ Admin Panel</h2>
+      <button class="close-x" onclick="closeAdmin()">✕</button>
+    </div>
+
+    <div id="admLogin">
+      <div class="login-card">
+        <h3>🔐 Admin Login</h3>
+        <p>Enter your password to manage apps</p>
+        <div class="err" id="loginErr">Wrong password!</div>
+        <div class="fg"><label class="fl">Password</label><input type="password" class="fi" id="pIn" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+        <button class="btn-p" style="width:100%;margin-top:.4rem;" onclick="doLogin()">Login →</button>
+      </div>
+    </div>
+
+    <div id="admDash" style="display:none;">
+      <div class="dc">
+        <div class="dt">➕ Add New App</div>
+        <div class="ok" id="addOk">✅ App added!</div>
+        <div class="fr">
+          <div class="fg"><label class="fl">App Name *</label><input type="text" class="fi" id="aN" placeholder="e.g. ClockCoin"></div>
+          <div class="fg"><label class="fl">Icon (emoji)</label><input type="text" class="fi" id="aI" placeholder="⏰" maxlength="2"></div>
+        </div>
+        <div class="fg"><label class="fl">Description *</label><input type="text" class="fi" id="aD" placeholder="What does this app do?"></div>
+        <div class="fr">
+          <div class="fg"><label class="fl">Status</label><select class="fi" id="aSt"><option value="live">🟢 Live</option><option value="soon">🟡 Coming Soon</option><option value="dev" selected>🔵 In Development</option></select></div>
+          <div class="fg"><label class="fl">Play Store Link</label><input type="text" class="fi" id="aPl" placeholder="https://play.google.com/..."></div>
+        </div>
+        <div class="fg"><label class="fl">Indus App Store Link</label><input type="text" class="fi" id="aIn" placeholder="https://indusappstore.com/..."></div>
+        <button class="btn-p" onclick="addApp()">Add App →</button>
+      </div>
+
+      <div class="dc">
+        <div class="dt">📱 Manage Apps</div>
+        <div id="admList"><p style="color:var(--muted);font-size:.86rem;">No apps yet.</p></div>
+      </div>
+
+      <div class="dc">
+        <div class="dt">🔒 Change Password</div>
+        <div class="fr">
+          <div class="fg"><label class="fl">New Password</label><input type="password" class="fi" id="nP" placeholder="New password"></div>
+          <div class="fg"><label class="fl">Confirm</label><input type="password" class="fi" id="cP" placeholder="Confirm"></div>
+        </div>
+        <button class="btn-p" onclick="changePass()">Update →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Advanced Intersection Observer for Smooth Reveal
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-  };
+let PASS=localStorage.getItem('caug_pass')||'caug2026';
+let apps=JSON.parse(localStorage.getItem('caug_apps')||'null');
+if(!apps){
+  apps=[
+    {id:1,name:'ClockCoin',icon:'⏰',desc:'Track your time AND money in one app. No ads, no subscriptions — just a donation button if you love it.',status:'dev',play:'',indus:''},
+    {id:2,name:'Caug Fit',icon:'💪',desc:'AI-powered fitness for Indians without gym access. Hyper-personalized diet and home workouts for your budget and city.',status:'dev',play:'',indus:''}
+  ];
+  save();
+}
+function save(){localStorage.setItem('caug_apps',JSON.stringify(apps));}
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, observerOptions);
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  render();
+}
 
-  document.querySelectorAll('.reveal').forEach(section => {
-    observer.observe(section);
-  });
+function badge(s){
+  if(s==='live') return '<span class="app-badge b-live">Live</span>';
+  if(s==='soon') return '<span class="app-badge b-soon">Coming Soon</span>';
+  return '<span class="app-badge b-dev">In Development</span>';
+}
+
+function card(a){
+  let l='';
+  if(a.play) l+=`<a href="${a.play}" class="app-btn" target="_blank">▶ Play Store</a>`;
+  if(a.indus) l+=`<a href="${a.indus}" class="app-btn" target="_blank">◈ Indus Store</a>`;
+  if(!a.play&&!a.indus) l='<span class="app-btn" style="cursor:default;opacity:.5;">🚧 Coming Soon</span>';
+  return `<div class="app-card"><div class="app-icon">${a.icon||'📱'}</div>${badge(a.status)}<div class="app-name">${a.name}</div><div class="app-desc">${a.desc}</div><div class="app-links">${l}</div></div>`;
+}
+
+function render(){
+  const e=`<div class="empty-grid"><div class="ei">📭</div><p>No apps yet — check back soon!</p></div>`;
+  const h=apps.length?apps.map(card).join(''):e;
+  document.getElementById('grid-home').innerHTML=h;
+  document.getElementById('grid-all').innerHTML=h;
+  document.getElementById('stat-n').textContent=apps.length;
+  renderList();
+}
+
+function renderList(){
+  const el=document.getElementById('admList');
+  if(!el) return;
+  if(!apps.length){el.innerHTML='<p style="color:var(--muted);font-size:.86rem;">No apps yet.</p>';return;}
+  el.innerHTML=apps.map(a=>`<div class="li"><div><div class="li-n">${a.icon||'📱'} ${a.name}</div><div class="li-s">${a.status==='live'?'🟢 Live':a.status==='soon'?'🟡 Coming Soon':'🔵 In Development'}</div></div><button class="del-btn" onclick="delApp(${a.id})">Delete</button></div>`).join('');
+}
+
+function openAdmin(){
+  document.getElementById('admOv').classList.add('open');
+  document.getElementById('admLogin').style.display='block';
+  document.getElementById('admDash').style.display='none';
+  document.getElementById('pIn').value='';
+  document.getElementById('loginErr').style.display='none';
+}
+function closeAdmin(){document.getElementById('admOv').classList.remove('open');}
+
+function doLogin(){
+  if(document.getElementById('pIn').value===PASS){
+    document.getElementById('admLogin').style.display='none';
+    document.getElementById('admDash').style.display='block';
+    renderList();
+  } else {
+    document.getElementById('loginErr').style.display='block';
+    document.getElementById('pIn').value='';
+  }
+}
+
+function addApp(){
+  const n=document.getElementById('aN').value.trim();
+  const d=document.getElementById('aD').value.trim();
+  if(!n||!d){alert('Name and description required!');return;}
+  apps.push({id:Date.now(),name:n,desc:d,icon:document.getElementById('aI').value.trim()||'📱',status:document.getElementById('aSt').value,play:document.getElementById('aPl').value.trim(),indus:document.getElementById('aIn').value.trim()});
+  save();render();
+  ['aN','aI','aD','aPl','aIn'].forEach(i=>document.getElementById(i).value='');
+  document.getElementById('aSt').value='dev';
+  const ok=document.getElementById('addOk');
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',3000);
+}
+
+function delApp(id){
+  if(!confirm('Delete this app?'))return;
+  apps=apps.filter(a=>a.id!==id);
+  save();render();
+}
+
+function changePass(){
+  const np=document.getElementById('nP').value;
+  const cp=document.getElementById('cP').value;
+  if(!np){alert('Enter a new password!');return;}
+  if(np!==cp){alert('Passwords do not match!');return;}
+  PASS=np;localStorage.setItem('caug_pass',PASS);
+  document.getElementById('nP').value='';
+  document.getElementById('cP').value='';
+  alert('Password updated! ✅');
+}
+
+render();
 </script>
-
 </body>
 </html>

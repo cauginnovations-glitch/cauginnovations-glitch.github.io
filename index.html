@@ -6,18 +6,14 @@
 <title>CAUG Innovations — Building the Future of Mobile</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#03030a;--card:#0c0c20;--border:rgba(120,160,255,0.1);
-  --cyan:#00e5ff;--blue:#4d8aff;--purple:#8b5cf6;
-  --text:#eef0ff;--muted:#6b7db3;
-}
+:root{--bg:#03030a;--card:#0c0c20;--border:rgba(120,160,255,0.1);--cyan:#00e5ff;--blue:#4d8aff;--purple:#8b5cf6;--text:#eef0ff;--muted:#6b7db3;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 15%,rgba(77,138,255,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 85% 85%,rgba(0,229,255,0.06) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 50% 50%,rgba(139,92,246,0.05) 0%,transparent 60%);pointer-events:none;z-index:0;}
 body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(99,179,237,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(99,179,237,0.025) 1px,transparent 1px);background-size:70px 70px;pointer-events:none;z-index:0;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(3,3,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(3,3,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
 .nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.08em;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
 .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -25,18 +21,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-link{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:.4rem .9rem;border-radius:6px;transition:all .2s;border:1px solid transparent;}
 .nav-link:hover{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.03);}
 .nav-admin{color:var(--cyan)!important;border-color:rgba(0,229,255,.2)!important;background:rgba(0,229,255,.05)!important;cursor:pointer;}
-.nav-admin:hover{background:rgba(0,229,255,.1)!important;box-shadow:0 0 20px rgba(0,229,255,.1);}
+.nav-admin:hover{background:rgba(0,229,255,.1)!important;}
 
 main{position:relative;z-index:2;}
 .page{display:none;}
 .page.active{display:block;}
 
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;}
 .hero-badge{display:inline-flex;align-items:center;gap:.55rem;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.15);padding:.42rem 1rem;border-radius:100px;margin-bottom:2.5rem;animation:fadeUp .8s ease both;}
 .hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite;}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,9vw,6.5rem);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:2rem;animation:fadeUp .8s .1s ease both;}
-.hero h1 .l1{display:block;color:var(--text);}
-.hero h1 .l2{display:block;background:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 40%,var(--purple) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.l1{display:block;color:var(--text);}
+.l2{display:block;background:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 40%,var(--purple) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hero-sub{max-width:520px;color:var(--muted);font-size:1.05rem;line-height:1.75;margin-bottom:3rem;animation:fadeUp .8s .2s ease both;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;}
 .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;animation:fadeUp .8s .6s ease both;}
@@ -44,22 +41,24 @@ main{position:relative;z-index:2;}
 @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-.btn-p{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03030a;font-weight:700;font-family:'Syne',sans-serif;font-size:.9rem;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .3s;}
+.btn-p{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03030a;font-weight:700;font-family:'Syne',sans-serif;font-size:.9rem;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .3s;display:inline-block;}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,255,.25);}
-.btn-g{background:transparent;color:var(--text);font-size:.9rem;font-weight:500;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid var(--border);transition:all .3s;}
+.btn-g{background:transparent;color:var(--text);font-size:.9rem;font-weight:500;padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid var(--border);transition:all .3s;display:inline-block;}
 .btn-g:hover{border-color:rgba(77,138,255,.4);color:var(--cyan);}
 
 .sec{padding:6rem 2rem;max-width:1200px;margin:0 auto;}
 .sec-tag{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;}
 .sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em;}
-.sec-sub{color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:3.5rem;font-size:.95rem;}
+.sec-sub{color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:3rem;font-size:.95rem;}
 
+/* APPS */
 .apps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.5rem;}
 .app-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.23,1,.32,1);}
 .app-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .3s;}
 .app-card:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.2);box-shadow:0 0 60px rgba(0,229,255,.1);}
 .app-card:hover::before{opacity:1;}
-.app-icon{width:58px;height:58px;border-radius:15px;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(77,138,255,.12));border:1px solid rgba(0,229,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.4rem;}
+.app-icon-img{width:60px;height:60px;border-radius:15px;object-fit:cover;margin-bottom:1.4rem;border:1px solid rgba(0,229,255,.15);}
+.app-icon-placeholder{width:60px;height:60px;border-radius:15px;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(77,138,255,.12));border:1px solid rgba(0,229,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.4rem;}
 .app-badge{display:inline-flex;align-items:center;gap:.32rem;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .56rem;border-radius:4px;margin-bottom:.8rem;}
 .b-live{background:rgba(0,255,128,.08);color:#00ff80;border:1px solid rgba(0,255,128,.2);}
 .b-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#00ff80;animation:blink 1.5s infinite;}
@@ -73,6 +72,24 @@ main{position:relative;z-index:2;}
 .empty-grid{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted);}
 .empty-grid .ei{font-size:3rem;margin-bottom:1rem;opacity:.25;}
 
+/* ANNOUNCEMENTS */
+.ann-grid{display:grid;gap:1.5rem;}
+.ann-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all .3s;}
+.ann-card:hover{border-color:rgba(0,229,255,.2);box-shadow:0 0 40px rgba(0,229,255,.07);}
+.ann-imgs{display:flex;gap:.5rem;overflow-x:auto;padding:1.25rem 1.25rem 0;scrollbar-width:none;}
+.ann-imgs::-webkit-scrollbar{display:none;}
+.ann-img{width:200px;height:130px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid var(--border);}
+.ann-img-single{width:100%;max-height:320px;object-fit:cover;}
+.ann-body{padding:1.5rem;}
+.ann-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+.ann-date{font-size:.72rem;color:var(--muted);letter-spacing:.05em;}
+.ann-tag-chip{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .5rem;border-radius:4px;background:rgba(0,229,255,.08);color:var(--cyan);border:1px solid rgba(0,229,255,.15);}
+.ann-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.5rem;}
+.ann-text{color:var(--muted);font-size:.88rem;line-height:1.75;}
+.empty-ann{text-align:center;padding:4rem 2rem;color:var(--muted);}
+.empty-ann .ei{font-size:3rem;margin-bottom:1rem;opacity:.25;}
+
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .stat-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all .3s;}
@@ -80,11 +97,13 @@ main{position:relative;z-index:2;}
 .stat-val{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
 .stat-lbl{color:var(--muted);font-size:.78rem;margin-top:.4rem;}
 
+/* CONTACT */
 .contact-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:4rem;text-align:center;position:relative;overflow:hidden;}
 .contact-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.05) 0%,transparent 70%);pointer-events:none;}
 .contact-link{display:inline-flex;align-items:center;gap:.55rem;font-family:'Syne',sans-serif;font-size:.98rem;font-weight:600;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,229,255,.22);padding:.88rem 2rem;border-radius:10px;margin-top:2rem;transition:all .3s;}
 .contact-link:hover{background:rgba(0,229,255,.07);box-shadow:0 0 40px rgba(0,229,255,.1);}
 
+/* PRIVACY */
 .priv-wrap{max-width:700px;margin:0 auto;padding:8rem 2rem 5rem;}
 .priv-wrap h1{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:700;margin-bottom:.5rem;}
 .priv-wrap .upd{color:var(--muted);font-size:.82rem;margin-bottom:2.5rem;}
@@ -104,11 +123,20 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 /* ADMIN */
 .adm-ov{display:none;position:fixed;inset:0;background:rgba(3,3,10,.97);backdrop-filter:blur(24px);z-index:500;overflow-y:auto;}
 .adm-ov.open{display:block;}
-.adm-in{max-width:680px;margin:0 auto;padding:2.5rem 2rem;min-height:100vh;}
+.adm-in{max-width:720px;margin:0 auto;padding:2.5rem 2rem;min-height:100vh;}
 .adm-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.5rem;margin-bottom:2rem;border-bottom:1px solid var(--border);}
 .adm-top h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;}
 .close-x{width:36px;height:36px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .close-x:hover{color:var(--text);border-color:var(--cyan);}
+
+/* Admin tabs */
+.adm-tabs{display:flex;gap:.5rem;margin-bottom:2rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.4rem;}
+.adm-tab{flex:1;padding:.6rem;border-radius:7px;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;text-align:center;}
+.adm-tab.active{background:rgba(0,229,255,.1);color:var(--cyan);border:1px solid rgba(0,229,255,.2);}
+.adm-tab:hover:not(.active){color:var(--text);}
+
+.adm-section{display:none;}
+.adm-section.active{display:block;}
 
 .login-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.5rem;max-width:380px;margin:4rem auto;text-align:center;}
 .login-card h3{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.4rem;}
@@ -119,17 +147,31 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 .fl{display:block;font-size:.76rem;color:var(--muted);font-weight:500;margin-bottom:.38rem;}
 .fi{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.76rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;appearance:none;}
 .fi:focus{border-color:var(--cyan);}
+textarea.fi{resize:vertical;min-height:80px;}
 select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' fill='%236b7db3' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;cursor:pointer;}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+/* Image upload area */
+.img-upload-area{border:2px dashed var(--border);border-radius:10px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.img-upload-area:hover{border-color:var(--cyan);background:rgba(0,229,255,.03);}
+.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.img-upload-label{color:var(--muted);font-size:.85rem;}
+.img-upload-label span{color:var(--cyan);font-weight:600;}
+
+/* Image previews */
+.img-previews{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.75rem;}
+.img-preview-item{position:relative;width:80px;height:80px;}
+.img-preview-item img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid var(--border);}
+.img-preview-remove{position:absolute;top:-6px;right:-6px;width:20px;height:20px;background:#f87171;border-radius:50%;border:none;color:white;font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
 
 .dc{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.6rem;margin-bottom:1.4rem;}
 .dt{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:var(--cyan);margin-bottom:1.4rem;}
 .ok{background:rgba(0,255,128,.06);border:1px solid rgba(0,255,128,.2);color:#00ff80;padding:.65rem 1rem;border-radius:7px;font-size:.8rem;margin-bottom:1rem;display:none;}
-.li{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);}
+.li{display:flex;align-items:flex-start;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);gap:1rem;}
 .li:last-child{border-bottom:none;}
 .li-n{font-weight:600;font-size:.88rem;}
 .li-s{color:var(--muted);font-size:.73rem;margin-top:.1rem;}
-.del-btn{padding:.28rem .7rem;border-radius:5px;font-size:.72rem;cursor:pointer;font-weight:600;transition:all .2s;background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
+.del-btn{padding:.28rem .7rem;border-radius:5px;font-size:.72rem;cursor:pointer;font-weight:600;transition:all .2s;background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);flex-shrink:0;}
 .del-btn:hover{background:rgba(248,113,113,.15);}
 
 @media(max-width:768px){
@@ -139,20 +181,20 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
   .fr{grid-template-columns:1fr;}
   footer{flex-direction:column;gap:1rem;text-align:center;}
   .contact-box{padding:2.5rem 1.5rem;}
+  .adm-tabs{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#" onclick="showPage('home')">
-    <div class="nav-dot"></div>
-    CAUG INNOVATIONS
+    <div class="nav-dot"></div>CAUG INNOVATIONS
   </a>
   <div class="nav-links">
     <a class="nav-link" href="#" onclick="showPage('home')">Home</a>
     <a class="nav-link" href="#" onclick="showPage('apps')">Apps</a>
+    <a class="nav-link" href="#" onclick="showPage('news')">News</a>
     <a class="nav-link" href="#" onclick="showPage('privacy')">Privacy</a>
     <a class="nav-link nav-admin" href="#" onclick="openAdmin()">⚙ Admin</a>
   </div>
@@ -178,6 +220,14 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
     <h2 class="sec-title">Our Apps</h2>
     <p class="sec-sub">Every app solves a real problem. No forced subscriptions, no intrusive ads.</p>
     <div class="apps-grid" id="grid-home"></div>
+  </div>
+
+  <!-- Latest News on Home -->
+  <div class="sec">
+    <div class="sec-tag">Latest</div>
+    <h2 class="sec-title">News & Updates</h2>
+    <p class="sec-sub">Stay updated with what we're building.</p>
+    <div class="ann-grid" id="ann-home"></div>
   </div>
 
   <div class="sec">
@@ -217,27 +267,37 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
   </div>
 </div>
 
+<!-- NEWS PAGE -->
+<div id="page-news" class="page">
+  <div class="apps-pg">
+    <div class="sec-tag">Updates</div>
+    <h2 class="sec-title" style="margin-bottom:.75rem;">News & Announcements</h2>
+    <p class="sec-sub">Latest updates from CAUG Innovations.</p>
+    <div class="ann-grid" id="ann-all"></div>
+  </div>
+</div>
+
 <!-- PRIVACY PAGE -->
 <div id="page-privacy" class="page">
   <div class="priv-wrap">
     <div class="sec-tag">Legal</div>
     <h1>Privacy Policy</h1>
     <p class="upd">Last updated: March 2026</p>
-    <p>At CAUG Innovations, your privacy is a fundamental right — not an afterthought. This policy explains how our apps handle your data.</p>
+    <p>At CAUG Innovations, your privacy is a fundamental right — not an afterthought.</p>
     <h2>Data We Collect</h2>
     <p>Our apps are designed with data minimization in mind. We only collect data strictly necessary for core functionality. We never sell your data to any third party.</p>
     <h2>How We Use Data</h2>
-    <p>Any data collected is used solely to provide the app's core features. We do not use your data for advertising, profiling, or any commercial purpose beyond the app's stated function.</p>
+    <p>Any data collected is used solely to provide the app's core features. We do not use your data for advertising or profiling.</p>
     <h2>Third-Party Services</h2>
-    <p>Some apps may use third-party services such as AI APIs or analytics tools. These have their own privacy policies. We only select privacy-respecting partners.</p>
+    <p>Some apps may use third-party services such as AI APIs. These have their own privacy policies. We only select privacy-respecting partners.</p>
     <h2>Data Storage</h2>
-    <p>Where possible, data is stored locally on your device and not transmitted to our servers. If cloud features are used, this is clearly disclosed in the app before use.</p>
+    <p>Where possible, data is stored locally on your device. If cloud features are used, this is clearly disclosed in the app before use.</p>
     <h2>Children's Privacy</h2>
-    <p>We are committed to protecting younger users. Our apps do not knowingly collect personal data from children under 13 without verifiable parental consent.</p>
+    <p>Our apps do not knowingly collect personal data from children under 13 without verifiable parental consent.</p>
     <h2>Your Rights</h2>
-    <p>You have the right to access, modify, or delete any personal data we hold. Contact us at any time and we will respond promptly.</p>
+    <p>You have the right to access, modify, or delete any personal data we hold. Contact us and we will respond promptly.</p>
     <h2>Contact</h2>
-    <p>Questions? Reach us at <a href="mailto:cauginnovation@gmail.com">cauginnovation@gmail.com</a></p>
+    <p>Questions? <a href="mailto:cauginnovation@gmail.com">cauginnovation@gmail.com</a></p>
   </div>
 </div>
 
@@ -252,7 +312,7 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
   </div>
 </footer>
 
-<!-- ADMIN -->
+<!-- ADMIN OVERLAY -->
 <div class="adm-ov" id="admOv">
   <div class="adm-in">
     <div class="adm-top">
@@ -260,62 +320,126 @@ select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
       <button class="close-x" onclick="closeAdmin()">✕</button>
     </div>
 
+    <!-- LOGIN -->
     <div id="admLogin">
       <div class="login-card">
         <h3>🔐 Admin Login</h3>
-        <p>Enter your password to manage apps</p>
+        <p>Enter your password to manage content</p>
         <div class="err" id="loginErr">Wrong password!</div>
         <div class="fg"><label class="fl">Password</label><input type="password" class="fi" id="pIn" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"></div>
         <button class="btn-p" style="width:100%;margin-top:.4rem;" onclick="doLogin()">Login →</button>
       </div>
     </div>
 
+    <!-- DASHBOARD -->
     <div id="admDash" style="display:none;">
-      <div class="dc">
-        <div class="dt">➕ Add New App</div>
-        <div class="ok" id="addOk">✅ App added!</div>
-        <div class="fr">
-          <div class="fg"><label class="fl">App Name *</label><input type="text" class="fi" id="aN" placeholder="e.g. ClockCoin"></div>
-          <div class="fg"><label class="fl">Icon (emoji)</label><input type="text" class="fi" id="aI" placeholder="⏰" maxlength="2"></div>
-        </div>
-        <div class="fg"><label class="fl">Description *</label><input type="text" class="fi" id="aD" placeholder="What does this app do?"></div>
-        <div class="fr">
-          <div class="fg"><label class="fl">Status</label><select class="fi" id="aSt"><option value="live">🟢 Live</option><option value="soon">🟡 Coming Soon</option><option value="dev" selected>🔵 In Development</option></select></div>
-          <div class="fg"><label class="fl">Play Store Link</label><input type="text" class="fi" id="aPl" placeholder="https://play.google.com/..."></div>
-        </div>
-        <div class="fg"><label class="fl">Indus App Store Link</label><input type="text" class="fi" id="aIn" placeholder="https://indusappstore.com/..."></div>
-        <button class="btn-p" onclick="addApp()">Add App →</button>
+
+      <!-- Tabs -->
+      <div class="adm-tabs">
+        <button class="adm-tab active" onclick="switchTab('apps')">📱 Apps</button>
+        <button class="adm-tab" onclick="switchTab('news')">📢 Announcements</button>
+        <button class="adm-tab" onclick="switchTab('settings')">🔒 Settings</button>
       </div>
 
-      <div class="dc">
-        <div class="dt">📱 Manage Apps</div>
-        <div id="admList"><p style="color:var(--muted);font-size:.86rem;">No apps yet.</p></div>
+      <!-- APPS TAB -->
+      <div class="adm-section active" id="tab-apps">
+        <div class="dc">
+          <div class="dt">➕ Add New App</div>
+          <div class="ok" id="addAppOk">✅ App added!</div>
+          <div class="fr">
+            <div class="fg"><label class="fl">App Name *</label><input type="text" class="fi" id="aN" placeholder="e.g. ClockCoin"></div>
+            <div class="fg">
+              <label class="fl">App Icon (image)</label>
+              <div class="img-upload-area" id="iconUploadArea">
+                <input type="file" accept="image/*" id="iconFile" onchange="previewIcon(this)">
+                <div class="img-upload-label">📁 <span>Click to upload</span> icon from gallery</div>
+              </div>
+              <div id="iconPreviewWrap" style="margin-top:.6rem;display:none;">
+                <img id="iconPreview" style="width:60px;height:60px;border-radius:12px;object-fit:cover;border:1px solid var(--border);">
+                <button onclick="clearIcon()" style="margin-left:.5rem;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);color:#f87171;border-radius:5px;padding:.25rem .5rem;font-size:.72rem;cursor:pointer;">Remove</button>
+              </div>
+            </div>
+          </div>
+          <div class="fg"><label class="fl">Description *</label><input type="text" class="fi" id="aD" placeholder="What does this app do?"></div>
+          <div class="fr">
+            <div class="fg"><label class="fl">Status</label><select class="fi" id="aSt"><option value="live">🟢 Live</option><option value="soon">🟡 Coming Soon</option><option value="dev" selected>🔵 In Development</option></select></div>
+            <div class="fg"><label class="fl">Play Store Link</label><input type="text" class="fi" id="aPl" placeholder="https://play.google.com/..."></div>
+          </div>
+          <div class="fg"><label class="fl">Indus App Store Link</label><input type="text" class="fi" id="aIn" placeholder="https://indusappstore.com/..."></div>
+          <button class="btn-p" onclick="addApp()">Add App →</button>
+        </div>
+
+        <div class="dc">
+          <div class="dt">📱 Manage Apps</div>
+          <div id="admAppList"><p style="color:var(--muted);font-size:.86rem;">No apps yet.</p></div>
+        </div>
       </div>
 
-      <div class="dc">
-        <div class="dt">🔒 Change Password</div>
-        <div class="fr">
-          <div class="fg"><label class="fl">New Password</label><input type="password" class="fi" id="nP" placeholder="New password"></div>
-          <div class="fg"><label class="fl">Confirm</label><input type="password" class="fi" id="cP" placeholder="Confirm"></div>
+      <!-- ANNOUNCEMENTS TAB -->
+      <div class="adm-section" id="tab-news">
+        <div class="dc">
+          <div class="dt">📢 Post Announcement</div>
+          <div class="ok" id="addAnnOk">✅ Announcement posted!</div>
+          <div class="fg"><label class="fl">Title *</label><input type="text" class="fi" id="annTitle" placeholder="e.g. Caug Fit Beta Launch!"></div>
+          <div class="fg"><label class="fl">Content *</label><textarea class="fi" id="annText" placeholder="Write your announcement here..."></textarea></div>
+          <div class="fr">
+            <div class="fg"><label class="fl">Category</label><select class="fi" id="annTag"><option value="Update">Update</option><option value="Launch">Launch</option><option value="News">News</option><option value="Event">Event</option></select></div>
+            <div class="fg"><label class="fl">Date</label><input type="date" class="fi" id="annDate"></div>
+          </div>
+          <div class="fg">
+            <label class="fl">Images (select multiple from gallery)</label>
+            <div class="img-upload-area">
+              <input type="file" accept="image/*" multiple id="annImgs" onchange="previewAnnImgs(this)">
+              <div class="img-upload-label">📁 <span>Click to upload</span> images (select multiple)</div>
+            </div>
+            <div class="img-previews" id="annImgPreviews"></div>
+          </div>
+          <button class="btn-p" onclick="addAnn()">Post Announcement →</button>
         </div>
-        <button class="btn-p" onclick="changePass()">Update →</button>
+
+        <div class="dc">
+          <div class="dt">📋 Manage Announcements</div>
+          <div id="admAnnList"><p style="color:var(--muted);font-size:.86rem;">No announcements yet.</p></div>
+        </div>
       </div>
+
+      <!-- SETTINGS TAB -->
+      <div class="adm-section" id="tab-settings">
+        <div class="dc">
+          <div class="dt">🔒 Change Password</div>
+          <div class="fr">
+            <div class="fg"><label class="fl">New Password</label><input type="password" class="fi" id="nP" placeholder="New password"></div>
+            <div class="fg"><label class="fl">Confirm</label><input type="password" class="fi" id="cP" placeholder="Confirm"></div>
+          </div>
+          <button class="btn-p" onclick="changePass()">Update →</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
 <script>
-let PASS=localStorage.getItem('caug_pass')||'caug2026';
-let apps=JSON.parse(localStorage.getItem('caug_apps')||'null');
+// ── STATE ──────────────────────────────────────────────────
+let PASS = localStorage.getItem('caug_pass') || 'caug2026';
+let apps = JSON.parse(localStorage.getItem('caug_apps') || 'null');
+let anns = JSON.parse(localStorage.getItem('caug_anns') || 'null');
+let iconData = null; // base64 icon
+let annImgData = []; // base64 announcement images
+
 if(!apps){
   apps=[
-    {id:1,name:'ClockCoin',icon:'⏰',desc:'Track your time AND money in one app. No ads, no subscriptions — just a donation button if you love it.',status:'dev',play:'',indus:''},
-    {id:2,name:'Caug Fit',icon:'💪',desc:'AI-powered fitness for Indians without gym access. Hyper-personalized diet and home workouts for your budget and city.',status:'dev',play:'',indus:''}
+    {id:1,name:'ClockCoin',icon:null,emoji:'⏰',desc:'Track your time AND money in one app. No ads, no subscriptions — just a donation button if you love it.',status:'dev',play:'',indus:''},
+    {id:2,name:'Caug Fit',icon:null,emoji:'💪',desc:'AI-powered fitness for Indians without gym access. Hyper-personalized diet and home workouts for your budget and city.',status:'dev',play:'',indus:''}
   ];
-  save();
+  saveApps();
 }
-function save(){localStorage.setItem('caug_apps',JSON.stringify(apps));}
+if(!anns){ anns=[]; saveAnns(); }
 
+function saveApps(){ localStorage.setItem('caug_apps', JSON.stringify(apps)); }
+function saveAnns(){ localStorage.setItem('caug_anns', JSON.stringify(anns)); }
+
+// ── PAGE ROUTING ───────────────────────────────────────────
 function showPage(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+n).classList.add('active');
@@ -323,36 +447,96 @@ function showPage(n){
   render();
 }
 
+// ── RENDER APPS ────────────────────────────────────────────
 function badge(s){
   if(s==='live') return '<span class="app-badge b-live">Live</span>';
   if(s==='soon') return '<span class="app-badge b-soon">Coming Soon</span>';
   return '<span class="app-badge b-dev">In Development</span>';
 }
 
-function card(a){
+function appCard(a){
+  const iconHtml = a.icon
+    ? `<img class="app-icon-img" src="${a.icon}" alt="${a.name}">`
+    : `<div class="app-icon-placeholder">${a.emoji||'📱'}</div>`;
   let l='';
   if(a.play) l+=`<a href="${a.play}" class="app-btn" target="_blank">▶ Play Store</a>`;
   if(a.indus) l+=`<a href="${a.indus}" class="app-btn" target="_blank">◈ Indus Store</a>`;
   if(!a.play&&!a.indus) l='<span class="app-btn" style="cursor:default;opacity:.5;">🚧 Coming Soon</span>';
-  return `<div class="app-card"><div class="app-icon">${a.icon||'📱'}</div>${badge(a.status)}<div class="app-name">${a.name}</div><div class="app-desc">${a.desc}</div><div class="app-links">${l}</div></div>`;
+  return `<div class="app-card">${iconHtml}${badge(a.status)}<div class="app-name">${a.name}</div><div class="app-desc">${a.desc}</div><div class="app-links">${l}</div></div>`;
+}
+
+// ── RENDER ANNOUNCEMENTS ───────────────────────────────────
+function annCard(a){
+  let imgs='';
+  if(a.images && a.images.length===1){
+    imgs=`<img class="ann-img-single" src="${a.images[0]}" alt="announcement">`;
+  } else if(a.images && a.images.length>1){
+    imgs=`<div class="ann-imgs">${a.images.map(i=>`<img class="ann-img" src="${i}" alt="">`).join('')}</div>`;
+  }
+  return `<div class="ann-card">
+    ${imgs}
+    <div class="ann-body">
+      <div class="ann-meta">
+        <span class="ann-tag-chip">${a.tag||'Update'}</span>
+        <span class="ann-date">${a.date||''}</span>
+      </div>
+      <div class="ann-title">${a.title}</div>
+      <div class="ann-text">${a.text}</div>
+    </div>
+  </div>`;
 }
 
 function render(){
-  const e=`<div class="empty-grid"><div class="ei">📭</div><p>No apps yet — check back soon!</p></div>`;
-  const h=apps.length?apps.map(card).join(''):e;
-  document.getElementById('grid-home').innerHTML=h;
-  document.getElementById('grid-all').innerHTML=h;
+  // Apps
+  const emptyApp=`<div class="empty-grid"><div class="ei">📭</div><p>No apps yet — check back soon!</p></div>`;
+  const appsHtml=apps.length?apps.map(appCard).join(''):emptyApp;
+  document.getElementById('grid-home').innerHTML=appsHtml;
+  document.getElementById('grid-all').innerHTML=appsHtml;
   document.getElementById('stat-n').textContent=apps.length;
-  renderList();
+
+  // Announcements
+  const emptyAnn=`<div class="empty-ann"><div class="ei">📭</div><p>No announcements yet.</p></div>`;
+  if(anns.length){
+    const annHtml=anns.slice().reverse().map(annCard).join('');
+    document.getElementById('ann-home').innerHTML=annHtml;
+    document.getElementById('ann-all').innerHTML=annHtml;
+  } else {
+    document.getElementById('ann-home').innerHTML=emptyAnn;
+    document.getElementById('ann-all').innerHTML=emptyAnn;
+  }
+
+  renderAdminLists();
 }
 
-function renderList(){
-  const el=document.getElementById('admList');
-  if(!el) return;
-  if(!apps.length){el.innerHTML='<p style="color:var(--muted);font-size:.86rem;">No apps yet.</p>';return;}
-  el.innerHTML=apps.map(a=>`<div class="li"><div><div class="li-n">${a.icon||'📱'} ${a.name}</div><div class="li-s">${a.status==='live'?'🟢 Live':a.status==='soon'?'🟡 Coming Soon':'🔵 In Development'}</div></div><button class="del-btn" onclick="delApp(${a.id})">Delete</button></div>`).join('');
+function renderAdminLists(){
+  // App list
+  const al=document.getElementById('admAppList');
+  if(al){
+    if(!apps.length){al.innerHTML='<p style="color:var(--muted);font-size:.86rem;">No apps yet.</p>';return;}
+    al.innerHTML=apps.map(a=>`<div class="li">
+      <div>
+        <div class="li-n">${a.icon?'🖼️':a.emoji||'📱'} ${a.name}</div>
+        <div class="li-s">${a.status==='live'?'🟢 Live':a.status==='soon'?'🟡 Coming Soon':'🔵 In Development'}</div>
+      </div>
+      <button class="del-btn" onclick="delApp(${a.id})">Delete</button>
+    </div>`).join('');
+  }
+
+  // Ann list
+  const annl=document.getElementById('admAnnList');
+  if(annl){
+    if(!anns.length){annl.innerHTML='<p style="color:var(--muted);font-size:.86rem;">No announcements yet.</p>';return;}
+    annl.innerHTML=anns.slice().reverse().map(a=>`<div class="li">
+      <div>
+        <div class="li-n">📢 ${a.title}</div>
+        <div class="li-s">${a.tag} · ${a.date} · ${a.images?a.images.length:0} image(s)</div>
+      </div>
+      <button class="del-btn" onclick="delAnn(${a.id})">Delete</button>
+    </div>`).join('');
+  }
 }
 
+// ── ADMIN ──────────────────────────────────────────────────
 function openAdmin(){
   document.getElementById('admOv').classList.add('open');
   document.getElementById('admLogin').style.display='block';
@@ -366,22 +550,94 @@ function doLogin(){
   if(document.getElementById('pIn').value===PASS){
     document.getElementById('admLogin').style.display='none';
     document.getElementById('admDash').style.display='block';
-    renderList();
+    // Set today's date
+    document.getElementById('annDate').value=new Date().toISOString().split('T')[0];
+    renderAdminLists();
   } else {
     document.getElementById('loginErr').style.display='block';
     document.getElementById('pIn').value='';
   }
 }
 
+function switchTab(t){
+  document.querySelectorAll('.adm-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.adm-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── ICON UPLOAD ────────────────────────────────────────────
+function previewIcon(input){
+  if(!input.files||!input.files[0]) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    iconData=e.target.result;
+    document.getElementById('iconPreview').src=iconData;
+    document.getElementById('iconPreviewWrap').style.display='block';
+    document.getElementById('iconUploadArea').querySelector('.img-upload-label').style.display='none';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function clearIcon(){
+  iconData=null;
+  document.getElementById('iconFile').value='';
+  document.getElementById('iconPreviewWrap').style.display='none';
+  document.getElementById('iconUploadArea').querySelector('.img-upload-label').style.display='block';
+}
+
+// ── ANN IMAGE UPLOAD ───────────────────────────────────────
+function previewAnnImgs(input){
+  if(!input.files||!input.files.length) return;
+  const files=Array.from(input.files);
+  annImgData=[];
+  document.getElementById('annImgPreviews').innerHTML='';
+  files.forEach((file,i)=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      annImgData.push(e.target.result);
+      const wrap=document.createElement('div');
+      wrap.className='img-preview-item';
+      wrap.id='prev-'+i;
+      wrap.innerHTML=`<img src="${e.target.result}"><button class="img-preview-remove" onclick="removeAnnImg(${i})">✕</button>`;
+      document.getElementById('annImgPreviews').appendChild(wrap);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function removeAnnImg(i){
+  annImgData.splice(i,1);
+  render();
+  // Re-render previews
+  const prev=document.getElementById('annImgPreviews');
+  prev.innerHTML='';
+  annImgData.forEach((d,idx)=>{
+    const wrap=document.createElement('div');
+    wrap.className='img-preview-item';
+    wrap.innerHTML=`<img src="${d}"><button class="img-preview-remove" onclick="removeAnnImg(${idx})">✕</button>`;
+    prev.appendChild(wrap);
+  });
+}
+
+// ── ADD APP ────────────────────────────────────────────────
 function addApp(){
   const n=document.getElementById('aN').value.trim();
   const d=document.getElementById('aD').value.trim();
   if(!n||!d){alert('Name and description required!');return;}
-  apps.push({id:Date.now(),name:n,desc:d,icon:document.getElementById('aI').value.trim()||'📱',status:document.getElementById('aSt').value,play:document.getElementById('aPl').value.trim(),indus:document.getElementById('aIn').value.trim()});
-  save();render();
-  ['aN','aI','aD','aPl','aIn'].forEach(i=>document.getElementById(i).value='');
+  apps.push({
+    id:Date.now(),name:n,desc:d,
+    icon:iconData||null,
+    emoji:'📱',
+    status:document.getElementById('aSt').value,
+    play:document.getElementById('aPl').value.trim(),
+    indus:document.getElementById('aIn').value.trim()
+  });
+  saveApps();render();
+  ['aN','aD','aPl','aIn'].forEach(i=>document.getElementById(i).value='');
   document.getElementById('aSt').value='dev';
-  const ok=document.getElementById('addOk');
+  clearIcon();
+  const ok=document.getElementById('addAppOk');
   ok.style.display='block';
   setTimeout(()=>ok.style.display='none',3000);
 }
@@ -389,9 +645,39 @@ function addApp(){
 function delApp(id){
   if(!confirm('Delete this app?'))return;
   apps=apps.filter(a=>a.id!==id);
-  save();render();
+  saveApps();render();
 }
 
+// ── ADD ANNOUNCEMENT ───────────────────────────────────────
+function addAnn(){
+  const t=document.getElementById('annTitle').value.trim();
+  const tx=document.getElementById('annText').value.trim();
+  if(!t||!tx){alert('Title and content required!');return;}
+  anns.push({
+    id:Date.now(),
+    title:t,text:tx,
+    tag:document.getElementById('annTag').value,
+    date:document.getElementById('annDate').value||new Date().toLocaleDateString('en-IN'),
+    images:[...annImgData]
+  });
+  saveAnns();render();
+  document.getElementById('annTitle').value='';
+  document.getElementById('annText').value='';
+  document.getElementById('annImgs').value='';
+  document.getElementById('annImgPreviews').innerHTML='';
+  annImgData=[];
+  const ok=document.getElementById('addAnnOk');
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',3000);
+}
+
+function delAnn(id){
+  if(!confirm('Delete this announcement?'))return;
+  anns=anns.filter(a=>a.id!==id);
+  saveAnns();render();
+}
+
+// ── CHANGE PASSWORD ────────────────────────────────────────
 function changePass(){
   const np=document.getElementById('nP').value;
   const cp=document.getElementById('cP').value;
@@ -403,7 +689,7 @@ function changePass(){
   alert('Password updated! ✅');
 }
 
+// ── INIT ───────────────────────────────────────────────────
 render();
 </script>
 </body>
-</html>
